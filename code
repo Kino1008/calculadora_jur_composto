@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+float conta(float montante, float tempo, float capital, float taxa);
+void entrada(float *montante, float *tempo , float *capital, float *taxa);
+
+int main (){
+    char repetir;
+    float montante, tempo, capital, taxa;
+    do {
+        entrada(&montante, &tempo, &capital, &taxa);
+    montante = conta(montante, tempo, capital, taxa);
+    printf("O valor do montante e: %.3f\n", montante);
+    printf("quer repetir a operacao?\n");
+    scanf(" %c", &repetir);
+    
+
+    } while (repetir == 's' || repetir == 'S');
+    return 0;
+}
+
+void entrada(float *montante, float *tempo , float *capital, float *taxa){
+    printf("Informe o capital \n");
+    scanf("%f", &(*capital));
+    printf("Informe quantos anos voce quer investir\n");
+    scanf("%f", &(*tempo));
+    printf("Informe a taxa anual de juros pretendida\n");
+    scanf("%f", &(*taxa));
+}
+
+float conta(float montante, float tempo, float capital, float taxa){
+    taxa = taxa / 100;
+    montante = capital * pow(1 + taxa, tempo);
+    return montante;
+}
