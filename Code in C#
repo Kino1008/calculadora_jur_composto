@@ -7,7 +7,7 @@ class Program {
         montante = capital * (float)Math.Pow(1 + taxa, tempo);
         return montante;
     }
-
+    
     static void Entry(out float montante, out float tempo, out float capital, out float taxa) {
         char resTempo;
 
